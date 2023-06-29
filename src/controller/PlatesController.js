@@ -3,7 +3,7 @@ const AppError  = require('../utils/AppError');
 
 
 class PlatesController{
-  async  create(req,res){
+  async create(req,res){
 
       const { title, description, category, price, ingredients } = req.body;
 
