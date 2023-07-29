@@ -14,11 +14,11 @@ const upload = multer(uploadConfig.MULTER);
 platesRoutes.use(ensureAuthenticated);
 
 platesRoutes.post('/', ensureUserIsAdmin,  platesController.create);
-platesRoutes.put('/:id', ensureUserIsAdmin,  platesController.update);
+platesRoutes.put('/:id', ensureUserIsAdmin, upload.single('image'),  platesController.update);
 platesRoutes.get('/:id',   platesController.show);
 platesRoutes.get('/',  platesController.index);
 platesRoutes.delete('/:id', ensureUserIsAdmin,  platesController.delete);
-platesRoutes.patch('/image/:id', upload.single('image',), platesImgController.update)
+platesRoutes.patch('/image/:id', upload.single('image'), platesImgController.update)
 
 
 module.exports = platesRoutes;
